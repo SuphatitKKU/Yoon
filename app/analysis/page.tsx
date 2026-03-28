@@ -6,6 +6,51 @@ import { useAnalysis } from "@/context/AnalysisContext";
 import { runFullAnalysis } from "@/utils/ngowHengAnalyzer";
 import { FilesetResolver, FaceLandmarker } from "@mediapipe/tasks-vision";
 
+// Indices for facial structure lines (from NgowHeng_Fixed.ipynb)
+const EYE_L = [33, 246, 161, 160, 159, 158, 157, 173, 133, 155, 154, 153, 145, 144, 163, 7];
+const EYE_R = [362, 398, 384, 385, 386, 387, 388, 466, 263, 249, 390, 373, 374, 380, 381, 382];
+const NOSE = [6, 351, 419, 248, 281, 275, 4, 45, 51, 3, 196, 122, 6];
+const MOUTH = [61, 185, 40, 39, 37, 0, 267, 269, 270, 409, 291, 375, 321, 405, 314, 17, 84, 181, 91, 146];
+const JAW = [127, 234, 93, 132, 58, 172, 136, 150, 149, 176, 148, 152, 377, 400, 378, 379, 365, 397, 288, 361, 323, 454, 356];
+
+function drawPath(ctx: CanvasRenderingContext2D, landmarks: any[], indices: number[], w: number, h: number) {
+  ctx.beginPath();
+  indices.forEach((idx, i) => {
+    const pt = landmarks[idx];
+    if (i === 0) ctx.moveTo(pt.x * w, pt.y * h);
+    else ctx.lineTo(pt.x * w, pt.y * h);
+  });
+  ctx.closePath();
+  ctx.stroke();
+}
+
+function overlayLandmarks(canvas: HTMLCanvasElement, landmarks: any[]) {
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
+  const w = canvas.width;
+  const h = canvas.height;
+
+  // Set style for structure lines
+  ctx.strokeStyle = "rgba(254, 214, 91, 0.6)"; // secondary color with alpha
+  ctx.lineWidth = 1.5;
+
+  // Draw major contours
+  drawPath(ctx, landmarks, EYE_L, w, h);
+  drawPath(ctx, landmarks, EYE_R, w, h);
+  drawPath(ctx, landmarks, NOSE, w, h);
+  drawPath(ctx, landmarks, MOUTH, w, h);
+  drawPath(ctx, landmarks, JAW, w, h);
+
+  // Draw all 478 points as tiny dots for a "scan" effect
+  ctx.fillStyle = "rgba(254, 214, 91, 0.8)";
+  landmarks.forEach((pt) => {
+    ctx.beginPath();
+    ctx.arc(pt.x * w, pt.y * h, 0.8, 0, 2 * Math.PI);
+    ctx.fill();
+  });
+}
+
 export default function AnalysisPage() {
   const router = useRouter();
   const { setReport, setCapturedImage } = useAnalysis();
@@ -132,6 +177,10 @@ export default function AnalysisPage() {
       const landmarks = result.faceLandmarks[0];
       
       const report = runFullAnalysis(landmarks);
+      
+      // Feature: Overlay landmarks on the image for the report
+      overlayLandmarks(canvas, landmarks);
+      setCapturedImage(canvas.toDataURL("image/jpeg"));
       
       setReport(report);
 
