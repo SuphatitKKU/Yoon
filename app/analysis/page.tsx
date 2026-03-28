@@ -95,9 +95,10 @@ export default function AnalysisPage() {
         "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.3/wasm"
       );
 
-      const faceLandmarker = await FaceLandmarker.createFromOptions(vision, {
+        const basePath = typeof window !== "undefined" && window.location.hostname.includes("github.io") ? "/Yoon" : "";
+        const faceLandmarker = await FaceLandmarker.createFromOptions(vision, {
         baseOptions: {
-          modelAssetPath: "/models/face_landmarker.task",
+          modelAssetPath: `${basePath}/models/face_landmarker.task`,
           delegate: "CPU",
         },
         outputFaceBlendshapes: true,

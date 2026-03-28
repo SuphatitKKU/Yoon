@@ -50,9 +50,9 @@
   --color-background-light: #fff9ed;
   --color-background-dark: #0a0a0a;
 
-  --font-headline: var(--font-noto-serif), serif;
-  --font-body: var(--font-noto-serif), serif;
-  --font-label: var(--font-work-sans), sans-serif;
+  --font-headline: var(--font-prompt), sans-serif;
+  --font-body: var(--font-prompt), sans-serif;
+  --font-label: var(--font-prompt), sans-serif;
 
   --radius-none: 0px;
   --radius-sm: 0px;

@@ -1,0 +1,21 @@
+{
+  "name": "Yoon",
+  "short_name": "Yoon",
+  "description": "โหงวเฮ้งยุคใหม่ - ศิลปะแห่งการอ่านใบหน้า",
+  "start_url": "/Yoon/",
+  "display": "standalone",
+  "background_color": "#fff9ed",
+  "theme_color": "#8f0402",
+  "icons": [
+    {
+      "src": "/Yoon/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/Yoon/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
