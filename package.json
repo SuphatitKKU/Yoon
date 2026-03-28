@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "deploy": "git add . && git commit -m 'deploy' && git push origin main"
   },
   "dependencies": {
     "@mediapipe/tasks-vision": "^0.10.34",
