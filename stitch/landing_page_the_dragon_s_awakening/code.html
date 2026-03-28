@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Modern Mian Xiang - The Art of Physiognomy</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Work+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-container": "#b22417",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "on-primary-fixed-variant": "#920703",
+                        "on-surface-variant": "#5a403e",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#fcf3d8",
+                        "surface-container-high": "#f1e8cd",
+                        "inverse-surface": "#35301e",
+                        "surface-container": "#f7eed2",
+                        "primary": "#8f0402",
+                        "surface-tint": "#b52619",
+                        "tertiary-container": "#5d5c5c",
+                        "inverse-on-surface": "#faf0d5",
+                        "surface-variant": "#ebe2c8",
+                        "secondary": "#735c00",
+                        "primary-fixed": "#ffdad4",
+                        "secondary-fixed": "#ffe088",
+                        "surface-container-highest": "#ebe2c8",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed": "#e5e2e1",
+                        "on-tertiary-container": "#d7d5d4",
+                        "on-secondary-fixed": "#241a00",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#410000",
+                        "surface-bright": "#fff9ed",
+                        "on-background": "#1f1c0b",
+                        "error": "#ba1a1a",
+                        "surface": "#fff9ed",
+                        "inverse-primary": "#ffb4a8",
+                        "surface-dim": "#e2dabf",
+                        "outline": "#8e706d",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "outline-variant": "#e2beba",
+                        "on-secondary-fixed-variant": "#574500",
+                        "primary-fixed-dim": "#ffb4a8",
+                        "secondary-container": "#fed65b",
+                        "on-primary-container": "#ffc8c0",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-surface": "#1f1c0b",
+                        "tertiary": "#454544",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "on-secondary-container": "#745c00",
+                        "on-error-container": "#93000a",
+                        "background": "#fff9ed"
+                    },
+                    fontFamily: {
+                        "headline": ["Noto Serif"],
+                        "body": ["Noto Serif"],
+                        "label": ["Work Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .silk-texture {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23735c00' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .ink-wash {
+            background: radial-gradient(circle at center, transparent 0%, rgba(31, 28, 11, 0.05) 100%);
+        }
+    </style>
+</head>
+<body class="text-on-surface font-body selection:bg-secondary-container selection:text-on-secondary-container bg-background-light">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full flex justify-between items-center px-8 py-4 bg-[#fff9ed] dark:bg-[#1f1c0b] backdrop-blur-md bg-opacity-80 z-50 shadow-[0px_10px_30px_rgba(31,28,11,0.05)]">
+<div class="flex items-center gap-2">
+<span class="text-2xl font-bold text-[#8f0402] dark:text-[#b22417] uppercase tracking-tighter">Modern Mian Xiang</span>
+</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-serif font-bold text-lg tracking-wide text-[#8f0402] border-b-2 border-[#735c00] pb-1" href="#">Home</a>
+<a class="font-serif font-bold text-lg tracking-wide text-[#5a403e] hover:text-[#8f0402] transition-colors" href="#">Features</a>
+<a class="font-serif font-bold text-lg tracking-wide text-[#5a403e] hover:text-[#8f0402] transition-colors" href="#">History</a>
+<a class="font-serif font-bold text-lg tracking-wide text-[#5a403e] hover:text-[#8f0402] transition-colors" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-[#8f0402] text-2xl hover:bg-[#fcf3d8] p-2 transition-all">account_circle</button>
+</div>
+</header>
+<!-- Scroll Progress Bar (Red Silk Thread) -->
+<div class="fixed top-0 left-0 w-full h-1 z-[60] bg-primary-container origin-left scale-x-0" id="progress-bar"></div>
+<main class="pt-16">
+<!-- Hero Section: High Contrast Ink Wash -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-on-background py-20">
+<div class="absolute inset-0 opacity-40 mix-blend-overlay">
+<img class="w-full h-full object-cover" data-alt="abstract black and white ink wash painting with subtle gold splashes and dramatic fluid textures representing qi energy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBA_os7CFWzjHXy12tcqp9yO1PRATL7Fb_XW2NLcOAksWfbwzTOnsrEvZAUogs3-0cu39wJSPrdh4EEeRgfEq9SCGygm-EHvOQeeAmcDEvwAbAJM-sH1X8cI0vxI_EEE7Khe3czC86aHJCX-4nuurfHrfKVJwNU0MwATprCsw7rEYXDxrrdM9b9rdnn5N35mAWpvnO7XfThPwy9XyTJu9ewaR7ygUqA29M0e1wqDwgCGmXHLv8cjLDfO4NRLwL1yjLO0wrOUpnsrVk"/>
+</div>
+<!-- Floating Lantern Effects -->
+<div class="absolute top-1/4 left-10 w-24 h-40 bg-secondary/20 blur-3xl rounded-full"></div>
+<div class="absolute bottom-1/4 right-10 w-32 h-48 bg-primary/20 blur-3xl rounded-full"></div>
+<!-- Hero Content -->
+<div class="relative z-10 container mx-auto px-6 text-center">
+<div class="mb-6 flex justify-center">
+<span class="text-secondary text-5xl material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<h1 class="text-6xl md:text-9xl font-bold text-surface-bright mb-8 tracking-tighter leading-none">
+<span class="text-primary inline-block">The</span> Art of <br/>
+<span class="relative">
+                        Mian Xiang
+                        <svg class="absolute -bottom-4 left-0 w-full h-4 text-secondary/40" preserveaspectratio="none" viewbox="0 0 100 10"><path d="M0 5 Q 25 0 50 5 T 100 5" fill="none" stroke="currentColor" stroke-width="2"></path></svg>
+</span>
+</h1>
+<p class="text-surface-variant max-w-2xl mx-auto text-xl mb-12 font-serif italic">
+                    Unlock the celestial blueprint of your destiny through the ancient science of facial morphology.
+                </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6">
+<button class="group relative px-12 py-5 bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold tracking-widest uppercase transition-all hover:scale-105">
+<span class="relative z-10 flex items-center gap-3">
+                            Begin Scan
+                            <span class="material-symbols-outlined">center_focus_strong</span>
+</span>
+<div class="absolute inset-0 bg-gradient-to-tr from-transparent via-secondary/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
+<!-- Mandarin Dots -->
+<div class="absolute left-[-8px] top-1/2 -translate-y-1/2 w-2 h-2 bg-secondary"></div>
+<div class="absolute right-[-8px] top-1/2 -translate-y-1/2 w-2 h-2 bg-secondary"></div>
+</button>
+<button class="px-10 py-5 border border-secondary/40 text-secondary hover:bg-secondary/5 transition-all uppercase tracking-widest font-label">
+                        Explore Lineage
+                    </button>
+</div>
+</div>
+<!-- Dragon Motif Placeholder -->
+<div class="absolute bottom-[-5%] left-[-5%] w-1/3 pointer-events-none opacity-40">
+<img class="w-full h-full object-contain mix-blend-lighten" data-alt="A high-definition, detailed traditional Chinese ink-wash (Sumi-e) illustration of a powerful and elegant dragon with visible scales and dynamic movement." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArI6vV5U0oFk0_K67n7wzQ4wYp8_Rz_Y8_N0_S0_T0_U0_V0_W0_X0_Y0_Z0_a0_b0_c0_d0_e0_f0_g0_h0_i0_j0_k0_l0_m0_n0_o0_p0_q0_r0_s0_t0_u0_v0_w0_x0_y0_z0_10_20_30_40_50_60_70_80_90"/>
+</div>
+</section>
+<!-- Ancient Roots Section -->
+<section class="py-24 silk-texture relative">
+<div class="container mx-auto px-6">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div class="relative order-2 md:order-1">
+<div class="p-4 border-2 border-secondary/20 relative">
+<img class="w-full h-[600px] object-cover grayscale brightness-75 hover:grayscale-0 transition-all duration-700" data-alt="A traditional Chinese landscape painting of a majestic mountain, ink wash style, with subtle gold accents and mist, vertical orientation, serene and mystical atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3ffAD-eEnGoljwpsq44gLaylCEo8Joii3LQcUBfU-VPOSwYiSU60U3KU57V7WUtDXvnjGQzi6mjFD7yOuqwLvLaMPP0YjhFeTUUfMjmihvNvKPjXBuExi12bTqkbl-Xe5XzYtg1f3YsBdAj4_BOFzFhnnz2eSr9AQ_U8kEZonLyTaKFmk5JXGGukwlpKWMlpcYwogTH-5tFJ5EVnEZfNn50iBK85W7gnvNtm6-Lblx0_k7GCMDRPxZFp8riOTIS3rU8Ajp70HGpM"/>
+<!-- Gold Filigree Corners -->
+<div class="absolute top-0 left-0 w-12 h-12 border-t-4 border-l-4 border-secondary -translate-x-2 -translate-y-2"></div>
+<div class="absolute bottom-0 right-0 w-12 h-12 border-b-4 border-r-4 border-secondary translate-x-2 translate-y-2"></div>
+</div>
+<!-- Qi Node Decor -->
+<div class="absolute top-1/2 -right-6 w-12 h-12 bg-secondary rounded-full blur-2xl opacity-40"></div>
+</div>
+<div class="order-1 md:order-2 space-y-8">
+<div class="flex items-center gap-4">
+<div class="h-px w-12 bg-secondary"></div>
+<span class="text-secondary font-label uppercase tracking-[0.3em]">Imperial Legacy</span>
+</div>
+<h2 class="text-5xl font-bold text-primary leading-tight">
+<span class="text-7xl">A</span>ncient Roots of <br/>Physiognomy
+                        </h2>
+<div class="space-y-6 text-on-surface-variant leading-relaxed text-lg">
+<p>For millennia, the Imperial Scribes observed the flow of Qi across the facial landscape. Mian Xiang is not mere fortune-telling; it is the geometric analysis of character and destiny through five mountains and four rivers.</p>
+<p>Every line, every shadow, and every bone structure tells a story of inherited potential and the karmic trajectory of the soul, recorded on the living parchment of the human face.</p>
+</div>
+<div class="grid grid-cols-2 gap-8 pt-8">
+<div class="p-6 bg-surface-container border-l-4 border-primary">
+<span class="block text-primary font-bold text-3xl mb-1">794</span>
+<span class="text-xs uppercase tracking-widest font-label">Scribe Lineage</span>
+</div>
+<div class="p-6 bg-surface-container border-l-4 border-secondary">
+<span class="block text-secondary font-bold text-3xl mb-1">12</span>
+<span class="text-xs uppercase tracking-widest font-label">Palace Analysis</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Digital Alchemy: Bento Grid -->
+<section class="py-24 bg-surface-container-low ink-wash relative">
+<div class="container mx-auto px-6">
+<div class="text-center mb-20">
+<h2 class="text-4xl md:text-5xl font-bold text-on-background mb-4">Digital Alchemy</h2>
+<p class="text-secondary font-label uppercase tracking-widest">Bridging Centuries with Silicon</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-full md:h-[700px]">
+<!-- Large Feature Card -->
+<div class="md:col-span-7 bg-on-background group relative overflow-hidden flex flex-col justify-end p-10">
+<img class="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:scale-110 transition-transform duration-1000" data-alt="futuristic facial mapping visualization with glowing red and gold data points on a dark moody portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9MOI1JvVl7leqGqIAVPhQXLx6sF5mZ9KMGlG6wTeLzDOa-C4KAmiyCEo8p3uCI-L_MG8LLWAKHttnWoNKGIFPvwUXzqogCEq7VNGOBTRueHFDi_W11m7ADP1OpbyGqW0PQsTGy3jn7Uh-ZxnruKlGK-vHrwe1pikWml0PfFBJAswAdPV3DAOo0yQ864FBQy35rdI9HZeHtmmLJ90mC8m4Iyn6rxPt4fZYyp8c96kNYgQtFoev0QUnKLH9boVY6bDsB3cDO3i5QpI"/>
+<div class="relative z-10">
+<span class="text-secondary material-symbols-outlined text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">biotech</span>
+<h3 class="text-3xl font-bold text-surface-bright mb-4">The Bagua Engine</h3>
+<p class="text-surface-variant max-w-md">Our proprietary neural network translates thousands of facial feature vectors into classical Mian Xiang readings with 98.4% accuracy.</p>
+</div>
+<div class="absolute top-6 right-6">
+<span class="text-primary text-6xl opacity-10 font-bold">01</span>
+</div>
+</div>
+<!-- Side Grid Items -->
+<div class="md:col-span-5 grid grid-rows-2 gap-6">
+<div class="bg-surface-container-highest p-8 relative flex flex-col justify-between border-b-2 border-secondary/20">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-primary text-3xl">history_edu</span>
+<span class="text-secondary/40 text-4xl font-bold">02</span>
+</div>
+<div>
+<h4 class="text-2xl font-bold text-on-background mb-2">Ancestral Comparison</h4>
+<p class="text-on-surface-variant">Trace your features back through historical archetypes and royal lineages.</p>
+</div>
+</div>
+<div class="bg-primary text-on-primary p-8 relative flex flex-col justify-between">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-secondary-container text-3xl">insights</span>
+<span class="text-on-primary/20 text-4xl font-bold">03</span>
+</div>
+<div>
+<h4 class="text-2xl font-bold mb-2">Qi Dynamics</h4>
+<p class="text-on-primary-container">Real-time analysis of vital energy shifts based on daily environmental factors.</p>
+</div>
+<!-- Small Firework Accent -->
+<div class="absolute bottom-4 right-4 w-12 h-12 border border-secondary/30 rotate-45"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- The Imperial Vault Section -->
+<section class="py-24 bg-surface relative overflow-hidden">
+<div class="absolute inset-0 opacity-5 pointer-events-none">
+<img class="w-full h-full object-repeat" data-alt="subtle repeating pattern of chinese longevity symbols and clouds on a light paper texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbzVUl6Tn4j8no-d5evTJfzSePdViY1TKDdsJN7Ebax9kYEFJdtBYA6rXIv4ULLwgmiUDZSNxOOTHs5Mk5IYBcrCAUTVmoler-mGlDV5PHzRBNQ_17y6Z-5Rkrn2Mj49KR9ZmNVaSsGNkPqKjrH7zpE6Ie_ItRfDL2Zd72kf6S_ha58UIr7iaJOhQxoUKnd5Gp3GCSzv_BzMF7YOEpK0rRhMlruAHoJWOYzpNi-d1pR7zyRnLcE6TDQKxMJtymXw8ufvYEWl3UUoc"/>
+</div>
+<div class="container mx-auto px-6 relative">
+<div class="max-w-4xl mx-auto text-center mb-16">
+<h2 class="text-5xl font-bold text-primary mb-6 tracking-tight">Enter The Imperial Vault</h2>
+<p class="text-on-surface-variant italic">Secure your readings in a digital treasury protected by the scribes of old.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+<div class="group">
+<div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-surface-container-high border-2 border-primary/10 group-hover:border-primary transition-all rotate-45">
+<span class="material-symbols-outlined text-primary -rotate-45 text-3xl">lock</span>
+</div>
+<h5 class="text-xl font-bold mb-3 uppercase tracking-widest">Privacy Seal</h5>
+<p class="text-on-surface-variant font-serif">Your facial data is encrypted using military-grade cinnabar protocols.</p>
+</div>
+<div class="group">
+<div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-surface-container-high border-2 border-secondary/10 group-hover:border-secondary transition-all rotate-45">
+<span class="material-symbols-outlined text-secondary -rotate-45 text-3xl">workspace_premium</span>
+</div>
+<h5 class="text-xl font-bold mb-3 uppercase tracking-widest">Noble Status</h5>
+<p class="text-on-surface-variant font-serif">Unlock deep-tier analysis previously reserved for the Qing elite.</p>
+</div>
+<div class="group">
+<div class="w-20 h-20 mx-auto mb-6 flex items-center justify-center bg-surface-container-high border-2 border-primary/10 group-hover:border-primary transition-all rotate-45">
+<span class="material-symbols-outlined text-primary -rotate-45 text-3xl">cloud_sync</span>
+</div>
+<h5 class="text-xl font-bold mb-3 uppercase tracking-widest">Qi Syncing</h5>
+<p class="text-on-surface-variant font-serif">Sync your readings across all devices within the Imperial ecosystem.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA: Mystical Call -->
+<section class="py-32 bg-on-background relative overflow-hidden">
+<div class="absolute inset-0 opacity-20">
+<img class="w-full h-full object-cover" data-alt="vibrant long exposure firework show against a pitch black sky with deep red and gold light trails" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6CDUeyuCOwGTudfEknxf8z3mmACusEt-ObOUT_avMcs4C-QD-aM6EYMrlobu8Cs59slVYXsE-guunFAVXhPEUxV3Q7Xm_BrVXNbTHNoJHxU6MhJ2pnH6K6nzVHbdL7zy6X8gFmoTiFgBXZUuj5ncXGMCvB9c3_jUqCsxmhPiCS2gMuWHablQs4GBsQ1GV9VsPQCg4eJCRMQ9Oud4HCQTQFCo-K9FNMNIbohNBZq-MGGXvqa0iWn0Ir3WSuivNUqH7SOQDYyxIJtI"/>
+</div>
+<div class="relative z-10 container mx-auto px-6 text-center">
+<h2 class="text-5xl md:text-7xl font-bold text-surface-bright mb-10 tracking-tighter">Your Destiny is Written. <br/><span class="text-secondary">Read it.</span></h2>
+<div class="flex flex-col md:flex-row items-center justify-center gap-8">
+<button class="group relative px-16 py-6 bg-secondary text-on-secondary font-bold text-xl uppercase tracking-[0.2em] hover:scale-105 transition-all">
+<span class="relative z-10">Begin Your Scan</span>
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out"></div>
+</button>
+</div>
+<div class="mt-12 flex items-center justify-center gap-2 text-surface-variant/60 font-label text-sm uppercase tracking-widest">
+<span>Authentic Lineage</span>
+<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
+<span>98.4% Accuracy</span>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full flex flex-col items-center justify-center gap-8 px-4 py-12 bg-[#fcf3d8] dark:bg-[#1a180a] border-t-2 border-[#735c00]/20">
+<div class="flex gap-12 text-[#5a403e] font-sans text-xs uppercase tracking-widest">
+<a class="hover:text-[#8f0402] transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-[#8f0402] transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-[#8f0402] transition-colors" href="#">Contact</a>
+</div>
+<div class="text-[#735c00] dark:text-[#fed65b] font-sans text-xs uppercase tracking-widest">
+            © 794 Imperial Scribes. All Rights Reserved.
+        </div>
+<!-- Decorative Border Element -->
+<div class="w-32 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent opacity-30"></div>
+</footer>
+<!-- SideNavBar (Mobile Bottom Bar) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full h-16 bg-[#fff9ed] dark:bg-[#1f1c0b] flex items-center justify-around z-[70] shadow-[0px_-4px_20px_rgba(0,0,0,0.1)]">
+<button class="flex flex-col items-center gap-1 text-[#8f0402] font-bold">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] uppercase font-label">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#5a403e]">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="text-[10px] uppercase font-label">Features</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#5a403e]">
+<span class="material-symbols-outlined">history</span>
+<span class="text-[10px] uppercase font-label">History</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-[#5a403e]">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-[10px] uppercase font-label">Settings</span>
+</button>
+</nav>
+</body></html>

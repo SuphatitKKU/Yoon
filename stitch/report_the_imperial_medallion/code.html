@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Work_Sans:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#8f0402",
+              "on-primary-container": "#ffc8c0",
+              "error-container": "#ffdad6",
+              "secondary": "#735c00",
+              "on-error": "#ffffff",
+              "on-secondary": "#ffffff",
+              "outline-variant": "#e2beba",
+              "on-error-container": "#93000a",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed": "#410000",
+              "inverse-surface": "#35301e",
+              "on-secondary-container": "#745c00",
+              "surface-tint": "#b52619",
+              "on-secondary-fixed": "#241a00",
+              "surface-bright": "#fff9ed",
+              "inverse-primary": "#ffb4a8",
+              "tertiary": "#454544",
+              "on-surface": "#1f1c0b",
+              "tertiary-container": "#5d5c5c",
+              "surface-variant": "#ebe2c8",
+              "inverse-on-surface": "#faf0d5",
+              "primary-container": "#b22417",
+              "surface-container-low": "#fcf3d8",
+              "tertiary-fixed": "#e5e2e1",
+              "on-background": "#1f1c0b",
+              "error": "#ba1a1a",
+              "secondary-container": "#fed65b",
+              "on-primary-fixed-variant": "#920703",
+              "on-tertiary-container": "#d7d5d4",
+              "on-tertiary-fixed-variant": "#474746",
+              "tertiary-fixed-dim": "#c8c6c5",
+              "surface-dim": "#e2dabf",
+              "primary-fixed-dim": "#ffb4a8",
+              "surface-container-lowest": "#ffffff",
+              "secondary-fixed-dim": "#e9c349",
+              "on-secondary-fixed-variant": "#574500",
+              "surface-container": "#f7eed2",
+              "background": "#fff9ed",
+              "on-primary": "#ffffff",
+              "surface-container-highest": "#ebe2c8",
+              "surface-container-high": "#f1e8cd",
+              "surface": "#fff9ed",
+              "primary-fixed": "#ffdad4",
+              "outline": "#8e706d",
+              "on-tertiary-fixed": "#1c1b1b",
+              "on-surface-variant": "#5a403e",
+              "secondary-fixed": "#ffe088"
+            },
+            fontFamily: {
+              "headline": ["Noto Serif"],
+              "body": ["Noto Serif"],
+              "label": ["Work Sans"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .imperial-gradient {
+        background: linear-gradient(135deg, #8f0402 0%, #b22417 100%);
+      }
+      .gold-shimmer {
+        background: linear-gradient(90deg, transparent, rgba(254, 214, 91, 0.2), transparent);
+        background-size: 200% 100%;
+      }
+      .parchment-texture {
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+      }
+      .ornate-border {
+        border: 2px solid #735c00;
+        position: relative;
+      }
+      .ornate-border::before {
+        content: '';
+        position: absolute;
+        top: 4px; left: 4px; right: 4px; bottom: 4px;
+        border: 1px solid rgba(115, 92, 0, 0.4);
+        pointer-events: none;
+      }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-4 max-w-full bg-gradient-to-b from-[#fcf3d8] to-[#fff9ed] shadow-[0px_10px_30px_rgba(31,28,11,0.05)]">
+<div class="text-2xl font-bold text-primary uppercase tracking-widest font-headline">Imperial Insights</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="font-headline font-bold text-lg tracking-tight text-primary border-b-2 border-secondary pb-1" href="#">Reading</a>
+<a class="font-headline font-bold text-lg tracking-tight text-[#5a403e] opacity-70 hover:text-secondary transition-colors duration-300" href="#">History</a>
+<a class="font-headline font-bold text-lg tracking-tight text-[#5a403e] opacity-70 hover:text-secondary transition-colors duration-300" href="#">Vault</a>
+</nav>
+<div class="flex gap-4 items-center">
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-95 transition-transform" data-icon="settings">settings</span>
+<span class="material-symbols-outlined text-primary cursor-pointer hover:scale-95 transition-transform" data-icon="account_circle">account_circle</span>
+</div>
+</header>
+<main class="pt-24 pb-20">
+<!-- Hero Section: The Map of Destiny -->
+<section class="relative w-full min-h-[716px] flex flex-col items-center justify-center overflow-hidden px-6 py-20">
+<!-- Decorative Background Element -->
+<div class="absolute inset-0 z-0 opacity-10 pointer-events-none flex items-center justify-center">
+<img class="w-full h-full object-cover grayscale sepia" data-alt="ancient celestial map with golden constellations and mythical dragon motifs on aged parchment texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDwEvkJt8fmukq4MTkD61b55bPYHXUymcICauz8tsQRL5HYIbwLGdum6gZznfUMypXl_63XaOii2ajWt97nk5OfyFn2Be3QK6f3gZmZ7WPPpFa89s6mNJnvHarsHOyO6ENJr2Ax_0vOFpthnkUT0XedW2BVeeVIbm-jX2P_P4MtsGcRer8Y0k8cVLQxlx41I_rjOVcVa_PZs8eabjaeFZmWkiAbh8jVArtVJ1S73TCeM-wyW9kEmcOOLNJxlpOp59jonBBVOUI9NI"/>
+</div>
+<!-- Central Medallion Frame -->
+<div class="relative z-10 mb-12">
+<div class="w-64 h-64 md:w-80 md:h-80 p-4 imperial-gradient shadow-2xl relative">
+<!-- High contrast pattern overlay -->
+<div class="absolute inset-0 opacity-20" style="background-image: radial-gradient(circle at 2px 2px, #fed65b 1px, transparent 0); background-size: 20px 20px;"></div>
+<!-- Imperial Medallion Frame -->
+<div class="w-full h-full border-[6px] border-secondary relative flex items-center justify-center bg-[#410000]">
+<div class="absolute -top-4 -left-4 w-12 h-12 border-t-4 border-l-4 border-secondary"></div>
+<div class="absolute -top-4 -right-4 w-12 h-12 border-t-4 border-r-4 border-secondary"></div>
+<div class="absolute -bottom-4 -left-4 w-12 h-12 border-b-4 border-l-4 border-secondary"></div>
+<div class="absolute -bottom-4 -right-4 w-12 h-12 border-b-4 border-r-4 border-secondary"></div>
+<!-- Portrait Content -->
+<div class="relative w-[90%] h-[90%] overflow-hidden">
+<img class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" data-alt="dignified portrait of an imperial scholar in traditional silk robes with intricate embroidery against a deep red background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdSDStdqqdKrBY86Dj1NlWjKz9l6fHaWhMa3N3T2oMCa454p-dQVDbLnrqfFvHR2hAOn-nevE05K2Ie7nR8hAsnVHbseey7PKKZ6N3jQ0KFO5NnWRpOlUwTzYgdCV7xPltuSE54xaJNYUX-IJrAZOzbiFv4wrKIIacedO6Snzieijgm9nxnHA6XUopAM-6Ht4RcMhcBPv7mgQVWLjOSO9h5RcI6OmQAaZtFywb4BNh_oYyhtH8ZijhyCVVuOPxtK4AqnYAXyZsOv8"/>
+</div>
+</div>
+</div>
+<!-- Silk Tassels decoration -->
+<div class="absolute -bottom-16 left-1/2 -translate-x-1/2 flex gap-12">
+<div class="w-1 h-24 bg-primary relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-4 after:bg-secondary after:rounded-full"></div>
+<div class="w-1 h-32 bg-primary relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-4 after:bg-secondary after:rounded-full"></div>
+<div class="w-1 h-24 bg-primary relative after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:w-4 after:h-4 after:bg-secondary after:rounded-full"></div>
+</div>
+</div>
+<!-- Hero Text -->
+<div class="relative z-10 text-center space-y-4">
+<span class="font-label text-secondary tracking-[0.4em] uppercase text-sm block">Celestial Record MMXXIV</span>
+<h1 class="text-6xl md:text-8xl font-headline font-bold text-primary tracking-tighter drop-shadow-[0_4px_12px_rgba(115,92,0,0.3)]">
+                    The Map of Destiny
+                </h1>
+<div class="flex items-center justify-center gap-4">
+<div class="h-[1px] w-12 bg-secondary/40"></div>
+<p class="font-label text-on-surface-variant italic text-lg max-w-xl">
+                        Unveiling the harmonic alignment of your temporal essence.
+                    </p>
+<div class="h-[1px] w-12 bg-secondary/40"></div>
+</div>
+</div>
+</section>
+<!-- Informational Edicts Section -->
+<section class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12 mt-20">
+<!-- Edict Card 1 -->
+<div class="relative group">
+<div class="bg-surface-container-high parchment-texture p-8 ornate-border min-h-[300px] flex flex-col justify-between hover:translate-y-[-8px] transition-transform duration-500">
+<div class="absolute top-0 right-0 w-16 h-16 opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="park">park</span>
+</div>
+<div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="nature">nature</span>
+<h3 class="font-headline text-2xl font-bold text-primary">Wood Element</h3>
+</div>
+<p class="text-on-surface-variant leading-relaxed">
+                            Your core vitality flows through the sap of ancient cedars. Growth is persistent, reaching toward the celestial light while remaining rooted in ancestral soil.
+                        </p>
+</div>
+<div class="mt-8 pt-4 border-t border-secondary/10 flex justify-between items-center">
+<span class="font-label text-xs uppercase tracking-widest text-secondary">Dominant Phase</span>
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="token">token</span>
+</div>
+</div>
+<!-- Decorative silk thread -->
+<div class="absolute -top-2 left-8 w-[2px] h-6 bg-primary"></div>
+</div>
+<!-- Edict Card 2 -->
+<div class="relative group">
+<div class="bg-surface-container-high parchment-texture p-8 ornate-border min-h-[300px] flex flex-col justify-between hover:translate-y-[-8px] transition-transform duration-500">
+<div class="absolute top-0 right-0 w-16 h-16 opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="visibility">visibility</span>
+</div>
+<div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="auto_awesome">auto_awesome</span>
+<h3 class="font-headline text-2xl font-bold text-primary">Phoenix Gaze</h3>
+</div>
+<p class="text-on-surface-variant leading-relaxed">
+                            The eye of the immortal firebird grants clarity through cycles of rebirth. Your intuition pierces the veil of mundane fog to see the golden path ahead.
+                        </p>
+</div>
+<div class="mt-8 pt-4 border-t border-secondary/10 flex justify-between items-center">
+<span class="font-label text-xs uppercase tracking-widest text-secondary">Spiritual Insight</span>
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="flare">flare</span>
+</div>
+</div>
+<!-- Decorative silk thread -->
+<div class="absolute -top-2 left-8 w-[2px] h-6 bg-primary"></div>
+</div>
+<!-- Edict Card 3 -->
+<div class="relative group">
+<div class="bg-surface-container-high parchment-texture p-8 ornate-border min-h-[300px] flex flex-col justify-between hover:translate-y-[-8px] transition-transform duration-500">
+<div class="absolute top-0 right-0 w-16 h-16 opacity-10">
+<span class="material-symbols-outlined text-6xl" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<div class="flex items-center gap-3 mb-6">
+<span class="material-symbols-outlined text-primary" data-icon="shield">shield</span>
+<h3 class="font-headline text-2xl font-bold text-primary">Iron Will</h3>
+</div>
+<p class="text-on-surface-variant leading-relaxed">
+                            Tempered in the forge of the Five Mountains, your resolve is unyielding. Obstacles shatter against the steadfast purity of your intended destiny.
+                        </p>
+</div>
+<div class="mt-8 pt-4 border-t border-secondary/10 flex justify-between items-center">
+<span class="font-label text-xs uppercase tracking-widest text-secondary">Core Fortitude</span>
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="diamond">diamond</span>
+</div>
+</div>
+<!-- Decorative silk thread -->
+<div class="absolute -top-2 left-8 w-[2px] h-6 bg-primary"></div>
+</div>
+</section>
+<!-- Call to Action: The Imperial Decree -->
+<section class="mt-32 max-w-4xl mx-auto text-center px-6">
+<div class="relative py-16 px-12 border-4 border-secondary/20">
+<div class="absolute -top-4 left-1/2 -translate-x-1/2 px-6 bg-background">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="history_edu">history_edu</span>
+</div>
+<h2 class="font-headline text-3xl font-bold text-on-surface mb-6">Proceed to the Chamber of Echoes</h2>
+<p class="font-label text-on-surface-variant text-sm tracking-widest uppercase mb-10">Your path is written, but the interpretation remains in your hands.</p>
+<button class="px-12 py-5 imperial-gradient text-on-primary font-headline font-bold text-lg tracking-widest flex items-center gap-4 mx-auto hover:scale-105 transition-transform">
+<div class="w-2 h-2 bg-secondary rounded-full"></div>
+                    UNSEAL DESTINY
+                    <div class="w-2 h-2 bg-secondary rounded-full"></div>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full flex flex-col items-center gap-4 py-12 px-8 mt-20 bg-[#fcf3d8] border-t border-[#735c00]/10">
+<div class="flex gap-12 font-label text-xs uppercase tracking-[0.2em] text-[#5a403e]">
+<a class="hover:text-primary transition-opacity" href="#">The Mandate</a>
+<a class="hover:text-primary transition-opacity" href="#">Privacy Scroll</a>
+<a class="hover:text-primary transition-opacity" href="#">Contact Scribe</a>
+</div>
+<p class="font-label text-xs uppercase tracking-[0.2em] text-secondary mt-4">© MMXXIV Celestial Manuscript. All Rights Reserved.</p>
+</footer>
+<!-- FAB (Suppressed for this detailed report view as per guidelines) -->
+</body></html>
