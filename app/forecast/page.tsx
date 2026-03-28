@@ -26,24 +26,49 @@ export default function ForecastPage() {
   const expandDetail = (title: string, defaultDesc: string) => {
     const detailsMap: Record<string, string> = {
       // Eyes (Sky Palace)
-      "ดวงตายาวรี": "ดวงตายาวรีบ่งบอกถึงสติปัญญาเฉียบแหลม วิสัยทัศน์กว้างไกล มีความสามารถในการรักษาความสัมพันธ์ระยะยาวได้เป็นอย่างดีเยี่ยม มักจะได้รับการอุปถัมภ์จากผู้หลักผู้ใหญ่หรือเบื้องบนอยู่เสมอ",
-      "ดวงตาพอดี": "ดวงตาได้สัดส่วนสะท้อนถึงสภาวะอารมณ์ที่มั่นคง สามารถจัดการกับอุปสรรคและแรงกดดันในชีวิตได้อย่างมีสติรอบคอบ ไม่หวั่นไหวต่อสิ่งเร้าง่ายๆ",
-      "ตาห่างพอดี": "ระยะห่างของดวงตาที่สมดุลชี้ให้เห็นถึงความใจกว้าง ซื่อสัตย์ และเป็นที่น่าเชื่อถือในสายตาของผู้ร่วมงาน ส่งผลดีต่อหน้าที่การงาน",
-      "ตาสมมาตร": "ความสมมาตรแห่งดวงตาคือสัญลักษณ์ของชีวิตที่สมดุล นำมาซึ่งความสำเร็จที่ยั่งยืนและความสงบสุขในจิตใจ",
-      "หว่างคิ้วกว้าง": "พื้นที่ระหว่างคิ้วที่กว้างขวางเปิดรับพลังงานบวก บ่งบอกถึงความปรีชาญาณ ความใจกว้าง และศักยภาพในการเป็นผู้นำที่อดทน",
-      
+      "ดวงตายาวรี": "ดวงตายาวรีบ่งบอกถึงสติปัญญาเฉียบแหลม วิสัยทัศน์กว้างไกล มีความสามารถในการรักษาความสัมพันธ์ระยะยาวได้เป็นอย่างดีเยี่ยม มักจะได้รับการอุปถัมภ์จากผู้หลักผู้ใหญ่หรือเบื้องบนอยู่เสมอ กอปรด้วยเมตตาธรรมและความรอบคอบ",
+      "ดวงตาพอดี": "ดวงตาได้สัดส่วนสะท้อนถึงสภาวะอารมณ์ที่มั่นคง สามารถจัดการกับอุปสรรคและแรงกดดันในชีวิตได้อย่างมีสติรอบคอบ ไม่หวั่นไหวต่อสิ่งเร้าง่ายๆ มีความยุติธรรมเป็นที่ตั้งและเปี่ยมด้วยคุณธรรม",
+      "ตาห่างพอดี": "ระยะห่างของดวงตาที่สมดุลชี้ให้เห็นถึงความใจกว้าง ซื่อสัตย์ และเป็นที่น่าเชื่อถือในสายตาของผู้ร่วมงาน ส่งผลดีต่อหน้าที่การงานที่ต้องอาศัยความร่วมมือและมิตรภาพอันยั่งยืน",
+      "ตาสมมาตร": "ความสมมาตรแห่งดวงตาคือสัญลักษณ์ของชีวิตที่สมดุล นำมาซึ่งความสำเร็จที่ยั่งยืนและความสงบสุขในจิตใจ จิตใจที่มั่นคงจะดึงดูดโชคลาภเกื้อหนุนให้ราบรื่นทุกก้าวย่าง",
+      "หว่างคิ้วกว้าง": "พื้นที่ระหว่างคิ้วที่กว้างขวางเปิดรับพลังงานบวก (ชี่) บ่งบอกถึงความปรีชาญาณ ความใจกว้าง และศักยภาพในการเป็นผู้นำที่อดทน สามารถรับมือกับวิกฤตการณ์ได้ด้วยความสุขุม",
+      "ตาเล็ก/สั้น": "แม้ดวงตาจะเล็กแต่สะท้อนถึงความละเอียดรอบคอบ ช่างสังเกต และมีความพากเพียรสูง หากใช้สติปัญญาควบคู่ไปจะเป็นผู้ที่มีโอกาสประสบความสำเร็จจากความเพียรของตน",
+      "ตาชิดกัน": "ดวงตาที่ค่อนข้างชิดสะท้อนถึงความมุ่งมั่นจดจ่อในสิ่งใดสิ่งหนึ่งอย่างแท้จริง เป็นผู้ที่มีสมาธิสูงและสามารถทำงานที่ต้องการความลึกซึ้งได้ดีเยี่ยม",
+      "ตาไม่เท่ากัน": "ความไม่เท่ากันของดวงตาสะท้อนถึงการเดินทางของชีวิตที่มีสีสันและบทเรียนหลากหลาย ช่วงชีวิตจะมีช่วงที่ก้าวกระโดดอย่างรวดเร็วจากการเรียนรู้ประสบการณ์",
+      "คิ้วต่ำชิดตา": "คิ้วที่ค่อนข้างชิดตาบ่งบอกถึงความรวดเร็วในการตัดสินใจ กระฉับกระเฉง และมีพลังในการขับเคลื่อนงานสูง หากเพิ่มความใจเย็นจะนำมาซึ่งความสำเร็จที่ยิ่งใหญ่",
+
       // Nose (Treasury)
-      "สันจมูกตรง": "สันจมูกที่ทอดยาวตรงอย่างสง่างาม บ่งบอกถึงความสามารถในการตัดสินใจที่เด็ดขาด มีภาวะผู้นำสูง และจะสามารถรักษาทรัพย์สินที่หามาได้อย่างมั่งคั่ง",
-      "ปลายจมูกไม่เชิด": "โชคชะตาด้านการเงินแข็งแกร่ง มีพรสวรรค์ในการเก็บออมและบริหารจัดการทรัพย์สิน ท้องพระคลังของคุณจะพอกพูนขึ้นเรื่อยๆ ไปตลอดชีวิต",
-      "ปีกจมูกสมดุล": "ความสมดุลของปีกจมูกสะท้อนถึงกระแสการเงินที่ไหลเวียนอย่างราบรื่น สุขภาพแข็งแรง และมักจะมีผู้ช่วยเหลือสนับสนุนด้านการลงทุนเมื่อถึงคราวจำเป็น",
-      "ปลายจมูกเชิดเล็กน้อย": "แม้จะมีรสนิยมที่ดีและใช้จ่ายเก่ง แต่ด้วยปฏิภาณไหวพริบ คุณมีความสามารถในการหาเงินเข้ามาหมุนเวียนและทดแทนได้อย่างต่อเนื่อง",
-      
+      "สันจมูกตรง": "สันจมูกที่ทอดยาวตรงอย่างสง่างาม บ่งบอกถึงความสามารถในการตัดสินใจที่เด็ดขาด มีภาวะผู้นำสูง และจะสามารถรักษาทรัพย์สินที่หามาได้อย่างมั่งคั่ง มั่นคงดั่งขุนเขาทองคำ",
+      "ปลายจมูกไม่เชิด": "โชคชะตาด้านการเงินแข็งแกร่ง มีพรสวรรค์ในการเก็บออมและบริหารจัดการทรัพย์สิน ท้องพระคลังของคุณจะพอกพูนขึ้นเรื่อยๆ ไปตลอดชีวิต แซ่ซ้องด้วยกลิ่นอายแห่งความรุ่งเรือง",
+      "ปีกจมูกสมดุล": "ความสมดุลของปีกจมูกสะท้อนถึงกระแสการเงินที่ไหลเวียนอย่างราบรื่น สุขภาพแข็งแรง และมักจะมีผู้ช่วยเหลือสนับสนุนด้านการลงทุนเมื่อถึงคราวจำเป็น มีมิตรสหายที่ดีคอยเกื้อกูล",
+      "ปลายจมูกเชิดเล็กน้อย": "แม้จะมีรสนิยมที่ดีและใช้จ่ายเก่งตามอัธยาศัย แต่ด้วยปฏิภาณไหวพริบ คุณมีความสามารถในการหาเงินเข้ามาหมุนเวียนและทดแทนได้อย่างต่อเนื่อง ไม่ขาดมือ",
+      "จมูกได้สัดส่วน": "ความยาวของจมูกที่ได้สัดส่วนสะท้อนถึงวิถีชีวิตที่ราบรื่นในช่วงวัยทำงาน (35-50 ปี) จะได้พบกับความสำเร็จที่ก้าวหน้าอย่างมั่นคงและสง่างาม",
+      "สันจมูกคด": "ความไม่ราบเรียบของสันจมูกสะท้อนถึงบทเรียนชีวิตที่ต้องฝ่าฟัน การแก้ไขปัญหาด้วยไหวพริบจะทำให้คุณกลายเป็นผู้ที่มีบารมีสูงขึ้นจากการชนะอุปสรรค",
+      "ปลายจมูกเชิด": "จมูกที่เชิดบ่งบอกถึงความเป็นคนเปิดเผย ใจกว้าง มีรื่นรมย์ในชีวิต มักจะได้โชคลาภจากมิตรสหายและการสังคมที่ยอดเยี่ยม",
+      "ปีกจมูกกว้าง": "ปีกจมูกที่กว้างหมายถึงความทะเยอทะยานที่ทรงพลัง มีความกล้าหาญในการลงทุนขยายกิจการ และสามารถดึงดูดโอกาสทางการเงินขนาดใหญ่เข้ามาสู่ตน",
+      "จมูกสั้น/ยาว": "ความยาวที่ไม่เป็นไปตามพิมพ์นิยมไม่ได้หมายถึงอุปสรรค แต่หมายถึงเอกลักษณ์ในการสร้างตัวที่แตกต่าง จะประสบความสำเร็จในแบบฉบับของตัวเองที่ไม่เหมือนใคร",
+
+      // Mouth (Mouth Palace - วังมหาทรัพย์)
+      "ปากกว้างพอดี": "ริมฝีปากที่ได้สัดส่วนสวยงามคือสัญลักษณ์ของการมีวาทศิลป์ที่ดีเยี่ยม พูดจาน่าเชื่อถือ ดึงดูดทรัพย์และโชคลาภจากการเจรจา ประสบความสำเร็จอย่างสูงในช่วงวัย 50-65 ปี",
+      "ปากไม่เบี้ยว": "ความสมมาตรของปากสะท้อนถึงความซื่อสัตย์สุจริต คำพูดมีน้ำหนักและเปี่ยมด้วยพลัง เป็นที่เคารพนับถือของคนรอบข้างและบริวาร มีสัจจะวาจาเป็นเลิศ",
+      "ปิดปากสนิท": "การปิดปากที่มิดชิดสะท้อนถึงความเป็นผู้รักษาความลับและเก็บออมทรัพย์สินได้ดีเยี่ยม มีความอดทนอดกลั้นและสามารถบริหารจัดการชีวิตได้อย่างเป็นระบบระเบียบ",
+      "ริมฝีปากสมดุล": "สัดส่วนบน-ล่างที่พอเหมาะบ่งบอกถึงชีวิตที่สุขสบายในยามเกษียณ จะอบอวลไปด้วยความรักและความเข้าใจจากคนในครอบครัว มรดกทางทรัพย์และปัญญาจะยั่งยืน",
+      "ปากกว้างมาก": "ปากที่กว้างบ่งบอกถึงอิทธิพลทางสังคมที่กว้างขวาง มีเพื่อนฝูงรอบกายมากมาย และมีความสามารถในการเจรจาต่อรองในระดับสูง",
+      "ปากแหลม/แคบ": "ปากที่เล็กแสดงถึงความละเอียดวิจิตรในการใช้คำพูด เป็นคนช่างเลือกและมีรสนิยมสูง จะประสบความสำเร็จในงานที่ต้องใช้ความประณีตและการเจรจาที่คมคาย",
+      "ปากเบี้ยว": "ความไม่สมมาตรสะท้อนถึงไหวพริบปฏิภาณในการพลิกแพลงสถานการณ์ หากใช้คำพูดย่างมีสติจะเป็นผู้ที่สามารถโน้มน้าวใจคนได้อย่างเหนือชั้น",
+      "ปากอ้าเล็กน้อย": "บ่งบอกถึงความเป็นคนคุยเก่ง เข้าสังคมง่าย และเป็นที่รักในหมู่เพื่อนฝูงด้วยความเป็นกันเองและมุกตลกที่น่ารื่นรมย์",
+      "ริมฝีปากไม่สมดุล": "สะท้อนถึงลักษณะเฉพาะของวาทศิลป์ที่มีพลัง แฝงด้วยความคิดสร้างสรรค์ที่ไม่เหมือนใครในบทสนทนา",
+
       // Jaw/Faces (Subordinates)
-      "คางอิ่มเต็ม": "คางที่หนาและอิ่มเต็มคือเอกลักษณ์ของผู้มีบุญบารมี บ่งบอกถึงความสุขสบายอย่างแท้จริงในช่วงบั้นปลายชีวิต และจะแวดล้อมไปด้วยบริวาร ลูกหลาน ที่ซื่อสัตย์คอยเกื้อหนุน",
-      "วังทั้ง 3 สมดุล": "ใบหน้าที่สัดส่วนวังทั้งสาม (ฟ้า มนุษย์ ดิน) สมดุลกันอย่างสมบูรณ์แบบ ถือเป็นสุดยอดแห่งโหงวเฮ้ง ชีวิตจะดำเนินไปอย่างราบรื่น ประสบความสำเร็จทั้งปัญญา โชคลาภ และบั้นปลายที่สุขสมบูรณ์",
-      "วังมนุษย์โดดเด่น": "ความโดดเด่นในวังมนุษย์ (ช่วงกลางใบหน้า) จะส่งผลให้คุณสามารถสร้างเนื้อสร้างตัวและเจริญรุ่งเรืองถึงขีดสุดเมื่อก้าวเข้าสู่วัย 40 ปีขึ้นไป",
-      "หน้าไข่": "รูปหน้าทรงไข่สะท้อนถึงบุคลิกภาพที่มีเสน่ห์ดึงดูดใจ มีความยืดหยุ่นสูง สามารถปรับตัวเข้ากับทุกสถานการณ์และเป็นที่รักของผู้คนรอบข้างเสมอ",
-      "หน้าสี่เหลี่ยม": "โครงหน้าที่แข็งแกร่งดั่งหินผา บ่งบอกถึงความเป็นผู้นำโดยกำเนิด หนักแน่น อดทน และสามารถนำทัพฟันฝ่าอุปสรรคใหญ่หลวงจนบรรลุเป้าหมายได้อย่างสง่างาม",
+      "คางอิ่มเต็ม": "คางที่หนาและอิ่มเต็มคือเอกลักษณ์ของผู้มีบุญบารมี บ่งบอกถึงความสุขสบายอย่างแท้จริงในช่วงบั้นปลายชีวิต และจะแวดล้อมไปด้วยบริวาร ลูกหลาน ที่ซื่อสัตย์คอยเกื้อหนุนอย่างอบอุ่น",
+      "วังทั้ง 3 สมดุล": "ใบหน้าที่สัดส่วนวังทั้งสาม (ฟ้า มนุษย์ ดิน) สมดุลกันอย่างสมบูรณ์แบบ ถือเป็นสุดยอดแห่งโหงวเฮ้ง ชีวิตจะดำเนินไปอย่างราบรื่น ประสบความสำเร็จทั้งปัญญา โชคลาภ และบั้นปลายที่สุขสมบูรณ์ดั่งวิหารทองคำ",
+      "วังมนุษย์โดดเด่น": "ความโดดเด่นในวังมนุษย์ (ช่วงกลางใบหน้า) จะส่งผลให้คุณสามารถสร้างเนื้อสร้างตัวและเจริญรุ่งเรืองถึงขีดสุดเมื่อก้าวเข้าสู่วัย 40 ปีขึ้นไป เป็นยุคทองแห่งความก้าวหน้า",
+      "หน้าไข่": "รูปหน้าทรงไข่สะท้อนถึงบุคลิกภาพที่มีเสน่ห์ดึงดูดใจ มีความยืดหยุ่นสูง สามารถปรับตัวเข้ากับทุกสถานการณ์และเป็นที่รักของผู้คนรอบข้างเสมอ เป็นที่เมตตาจากทุกคน",
+      "หน้าสี่เหลี่ยม": "โครงหน้าที่แข็งแกร่งดั่งหินผา บ่งบอกถึงความเป็นผู้นำโดยกำเนิด หนักแน่น อดทน และสามารถนำทัพฟันฝ่าอุปสรรคใหญ่หลวงจนบรรลุเป้าหมายได้อย่างสง่างามและมั่นคง",
+      "หน้าสามเหลี่ยม": "รูปหน้าสามเหลี่ยมสะท้อนถึงความฉลาดปราดเปรื่อง มีความคิดสร้างสรรค์ที่ล้ำลึก หากเพิ่มการสร้างความสัมพันธ์กับคนรอบข้างจะเป็นผู้ที่ไร้ขีดจำกัดทางปัญญา",
+      "หน้ากลม": "โครงหน้าที่กลมมนสื่อถึงความมีน้ำใจ ใจดี มีเมตตา อารมณ์เบิกบาน มักจะมีโชคทางด้านการได้รับการอุปถัมภ์และการช่วยเหลือจากผู้อื่นอยู่เสมอ",
+      "วังฟ้าโดดเด่น": "ความโดดเด่นของหน้าผากสะท้อนถึงต้นทุนทางสติปัญญาที่เป็นเลิศ มักได้ดิบได้ดีตั้งแต่เยาว์วัยเพราะความคิดที่เกินอายุ",
+      "วังดินโดดเด่น": "ความโดดเด่นของช่วงคางบ่งบอกถึงฐานรากของชีวิตที่มั่นคงขึ้นเรื่อยๆ ตามกาลเวลา บั้นปลายจะเป็นช่วงที่ชีวิตมีความเสถียรที่สุด",
+      "คางแหลม/เล็ก": "สะท้อนถึงความคล่องตัวและการตัดสินใจที่ว่องไว มีความสามารถในการปรับเปลี่ยนแผนได้อย่างรวดเร็วเพื่อรักษาผลประโยชน์ของตนและบริวาร",
     };
     return detailsMap[title] || defaultDesc;
   };
@@ -275,7 +300,7 @@ export default function ForecastPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-surface-container-high p-10 space-y-6 text-center group hover:-translate-y-2 hover:bg-[#8f0402] transition-all duration-500 cursor-default border border-secondary border-opacity-5 shadow-lg hover:shadow-2xl">
               <div className="relative inline-block">
                 <div className="w-24 h-24 bg-white flex items-center justify-center border-2 border-secondary border-opacity-40 group-hover:border-opacity-100 transition-all">
@@ -289,20 +314,22 @@ export default function ForecastPage() {
                   </span>
                 </div>
               </div>
-              <h3 className="font-headline text-2xl font-bold text-primary group-hover:text-on-primary">
+              <h3 className="font-headline text-2xl font-bold text-primary group-hover:text-on-primary leading-tight min-h-[64px] flex items-center justify-center">
                 คฤหาสน์สวรรค์ (ทัศนคติ)
               </h3>
-              <div className="font-body text-sm leading-relaxed text-on-surface-variant group-hover:text-surface-container-low min-h-[80px] text-left">
+              <div className="font-body text-sm leading-relaxed text-on-surface-variant group-hover:text-surface-container-low min-h-[120px] text-left">
                 {report ? (
                   <>
-                    <p className="font-bold mb-2 text-center">{getVerdict(report.eyes, "ปัญญาญาณ", "👁️").titleTh}</p>
+                    <p className="font-bold mb-2 text-center text-primary-container group-hover:text-secondary-fixed">
+                      {getVerdict(report.eyes, "ปัญญาญาณ", "👁️").titleTh}
+                    </p>
                     <p>{expandDetail(getVerdict(report.eyes, "", "").titleTh, getVerdict(report.eyes, "", "").descEn || "")}</p>
                   </>
                 ) : (
-                  <p className="text-center mt-4">ตั้งอยู่บนหน้าผาก พื้นที่กว้างขวางบ่งบอกถึงการปกป้องจากเบื้องบนและความเจริญรุ่งเรือง</p>
+                  <p className="text-center mt-4 opacity-70 italic">ตั้งอยู่บริเวณหน้าผากและดวงตา พื้นที่แห่งสติปัญญาและการมองการณ์ไกล บ่งบอกถึงฐานรากแห่งความคิดและการปกป้องจากสวรรค์</p>
                 )}
               </div>
-              <div className="pt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="pt-4 opacity-0 group-hover:opacity-100 transition-opacity border-t border-secondary-fixed border-opacity-10">
                 <span className="font-label text-[10px] uppercase tracking-widest text-secondary-fixed font-bold">
                   อิทธิพลมงคล: {getPercentage(report?.eyes, "88%")}
                 </span>
@@ -322,22 +349,24 @@ export default function ForecastPage() {
                   </span>
                 </div>
               </div>
-              <h3 className="font-headline text-2xl font-bold text-primary group-hover:text-on-primary">
+              <h3 className="font-headline text-2xl font-bold text-primary group-hover:text-on-primary leading-tight min-h-[64px] flex items-center justify-center">
                 ท้องพระคลัง (การเงิน)
               </h3>
-              <div className="font-body text-sm leading-relaxed text-on-surface-variant group-hover:text-surface-container-low min-h-[80px] text-left">
+              <div className="font-body text-sm leading-relaxed text-on-surface-variant group-hover:text-surface-container-low min-h-[120px] text-left">
                 {report ? (
                   <>
-                    <p className="font-bold mb-2 text-center">{getVerdict(report.nose, "ฐานะการเงิน", "👃").titleTh}</p>
+                    <p className="font-bold mb-2 text-center text-primary-container group-hover:text-secondary-fixed">
+                      {getVerdict(report.nose, "ฐานะการเงิน", "👃").titleTh}
+                    </p>
                     <p>{expandDetail(getVerdict(report.nose, "", "").titleTh, getVerdict(report.nose, "", "").descEn || "")}</p>
                   </>
                 ) : (
-                  <p className="text-center mt-4">ขอบเขตที่ชัดเจนและมีเนื้อสมบูรณ์บ่งบอกถึงความสามารถในการรักษาความมั่งคั่งเมื่อได้มา</p>
+                  <p className="text-center mt-4 opacity-70 italic">จมูกคือศูนย์กลางแห่งโชคลาภ จมูกที่มีเนื้ออิ่มเอิบและสันจมูกที่แข็งแกร่งบ่งบอกถึงความสามารถในการรักษาและพอกพูนทรัพย์สิน</p>
                 )}
               </div>
-              <div className="pt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="pt-4 opacity-0 group-hover:opacity-100 transition-opacity border-t border-secondary-fixed border-opacity-10">
                 <span className="font-label text-[10px] uppercase tracking-widest text-secondary-fixed font-bold">
-                  ระดับการเก็บเงิน: {getPercentage(report?.nose, "95%")}
+                  ระดับโชคลาภ: {getPercentage(report?.nose, "95%")}
                 </span>
               </div>
             </div>
@@ -346,7 +375,7 @@ export default function ForecastPage() {
               <div className="relative inline-block">
                 <div className="w-24 h-24 bg-white flex items-center justify-center border-2 border-secondary border-opacity-40 group-hover:border-opacity-100 transition-all">
                   <span className="material-symbols-outlined text-5xl text-primary group-hover:text-secondary-fixed">
-                    groups_2
+                    currency_exchange
                   </span>
                 </div>
                 <div className="absolute -top-2 -right-2 w-8 h-8 bg-secondary flex items-center justify-center transform rotate-12 shadow-md">
@@ -355,20 +384,57 @@ export default function ForecastPage() {
                   </span>
                 </div>
               </div>
-              <h3 className="font-headline text-2xl font-bold text-primary group-hover:text-on-primary">
-                วังบริวาร (ผู้คนรอบข้าง)
+              <h3 className="font-headline text-2xl font-bold text-primary group-hover:text-on-primary leading-tight min-h-[64px] flex items-center justify-center">
+                วังมหาทรัพย์ (วาทศิลป์)
               </h3>
-              <div className="font-body text-sm leading-relaxed text-on-surface-variant group-hover:text-surface-container-low min-h-[80px] text-left">
+              <div className="font-body text-sm leading-relaxed text-on-surface-variant group-hover:text-surface-container-low min-h-[120px] text-left">
                 {report ? (
                   <>
-                    <p className="font-bold mb-2 text-center">{getVerdict(report.jaw, "เสน่ห์บารมี", "👤").titleTh}</p>
+                    <p className="font-bold mb-2 text-center text-primary-container group-hover:text-secondary-fixed">
+                      {getVerdict(report.mouth, "การเจรจา", "👄").titleTh}
+                    </p>
+                    <p>{expandDetail(getVerdict(report.mouth, "", "").titleTh, getVerdict(report.mouth, "", "").descEn || "")}</p>
+                  </>
+                ) : (
+                  <p className="text-center mt-4 opacity-70 italic">ปากคือประตูแห่งทรัพย์ผ่านคำพูดและการติดต่อสื่อสาร ปากที่ได้สัดส่วนบ่งบอกถึงชีวิตที่ไม่มีวันอดอยากและมีเพื่อนฝูงมากมาย</p>
+                )}
+              </div>
+              <div className="pt-4 opacity-0 group-hover:opacity-100 transition-opacity border-t border-secondary-fixed border-opacity-10">
+                <span className="font-label text-[10px] uppercase tracking-widest text-secondary-fixed font-bold">
+                  ดัชนีรวยล้น: {getPercentage(report?.mouth, "92%")}
+                </span>
+              </div>
+            </div>
+
+            <div className="bg-surface-container-high p-10 space-y-6 text-center group hover:-translate-y-2 hover:bg-[#8f0402] transition-all duration-500 cursor-default border border-secondary border-opacity-5 shadow-lg hover:shadow-2xl">
+              <div className="relative inline-block">
+                <div className="w-24 h-24 bg-white flex items-center justify-center border-2 border-secondary border-opacity-40 group-hover:border-opacity-100 transition-all">
+                  <span className="material-symbols-outlined text-5xl text-primary group-hover:text-secondary-fixed">
+                    partner_exchange
+                  </span>
+                </div>
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-secondary flex items-center justify-center transform rotate-12 shadow-md">
+                  <span className="text-on-secondary-fixed font-bold text-[10px]">
+                    IV
+                  </span>
+                </div>
+              </div>
+              <h3 className="font-headline text-2xl font-bold text-primary group-hover:text-on-primary leading-tight min-h-[64px] flex items-center justify-center">
+                วังบริวาร (อำนาจ)
+              </h3>
+              <div className="font-body text-sm leading-relaxed text-on-surface-variant group-hover:text-surface-container-low min-h-[120px] text-left">
+                {report ? (
+                  <>
+                    <p className="font-bold mb-2 text-center text-primary-container group-hover:text-secondary-fixed">
+                      {getVerdict(report.jaw, "บารมี", "👤").titleTh}
+                    </p>
                     <p>{expandDetail(getVerdict(report.jaw, "", "").titleTh, getVerdict(report.jaw, "", "").descEn || "")}</p>
                   </>
                 ) : (
-                  <p className="text-center mt-4">คางที่แข็งแรงและมีเนื้อสมบูรณ์เป็นตัวแทนของการสนับสนุนที่ซื่อสัตย์จากผู้ใต้บังคับบัญชา</p>
+                  <p className="text-center mt-4 opacity-70 italic">โครงหน้าและคางสะท้อนถึงบริวารและอำนาจการปกครอง คางที่อิ่มเต็มคือกุญแจสู่บั้นปลายชีวิตที่มีความสุขและแวดล้อมด้วยคนที่รัก</p>
                 )}
               </div>
-              <div className="pt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="pt-4 opacity-0 group-hover:opacity-100 transition-opacity border-t border-secondary-fixed border-opacity-10">
                 <span className="font-label text-[10px] uppercase tracking-widest text-secondary-fixed font-bold">
                   ดัชนีความภักดี: {getPercentage(report?.jaw, "90%")}
                 </span>
