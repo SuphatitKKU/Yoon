@@ -48,6 +48,60 @@ export default function ForecastPage() {
     return detailsMap[title] || defaultDesc;
   };
 
+  const getBarData = () => {
+    if (!report) {
+      return [
+        { age: 10, height: 20 },
+        { age: 20, height: 35 },
+        { age: 30, height: 55 },
+        { age: 40, height: 45 },
+        { age: 50, height: 70 },
+        { age: 60, height: 95, peak: true },
+        { age: 70, height: 80 },
+        { age: 80, height: 65 },
+      ];
+    }
+
+    // Mapping logic based on Ngow Heng zones
+    // Ages 10-30: Sky Palace (Eyes/Forehead)
+    const sEyes = (report.eyes.score / 6) * 100;
+    // Ages 40-50: Human Palace (Nose/Middle Face)
+    const sNose = (report.nose.score / 7) * 100;
+    // Ages 60-80: Earth Palace (Jaw/Mouth/Lower Face)
+    const sLower = ((report.mouth.score + report.jaw.score) / 13) * 100;
+
+    const data = [
+      { age: 10, height: Math.max(15, sEyes * 0.4) },
+      { age: 20, height: Math.max(20, sEyes * 0.7) },
+      { age: 30, height: Math.max(25, sEyes * 1.0) },
+      { age: 40, height: Math.max(30, sNose * 0.9) },
+      { age: 50, height: Math.max(35, sNose * 1.1) },
+      { age: 60, height: Math.max(40, sLower * 1.2) },
+      { age: 70, height: Math.max(30, sLower * 1.0) },
+      { age: 80, height: Math.max(20, sLower * 0.8) },
+    ];
+
+    // Identify Peak
+    let peakIdx = 0;
+    let maxH = 0;
+    data.forEach((d, i) => {
+      // Give slight preference to middle-late age (50-60) if scores are similar
+      const bonus = (d.age >= 50 && d.age <= 60) ? 2 : 0;
+      if (d.height + bonus > maxH) {
+        maxH = d.height + bonus;
+        peakIdx = i;
+      }
+    });
+
+    return data.map((d, i) => ({
+      ...d,
+      height: Math.min(Math.round(d.height), 98),
+      peak: i === peakIdx
+    }));
+  };
+
+  const barData = getBarData();
+
   return (
     <div className="bg-surface text-on-surface flex-1 w-full relative parchment-texture">
       <div
@@ -152,49 +206,39 @@ export default function ForecastPage() {
             ></div>
             <div className="relative z-10">
               <div className="grid grid-cols-8 gap-1 md:gap-3 items-end h-48 border-b border-primary border-opacity-20">
-                <div className="group relative flex flex-col items-center gap-2 h-full justify-end">
-                  <div className="w-full bg-gradient-to-b from-[#574500] to-[#735c00] border-l border-[#fed65b] border-r border-[#241a00] transition-all duration-500 h-[20%] group-hover:h-[25%] opacity-80 group-hover:opacity-100"></div>
-                  <span className="font-label text-[10px] text-on-surface-variant">10</span>
-                </div>
-                <div className="group relative flex flex-col items-center gap-2 h-full justify-end">
-                  <div className="w-full bg-gradient-to-b from-[#574500] to-[#735c00] border-l border-[#fed65b] border-r border-[#241a00] transition-all duration-500 h-[35%] group-hover:h-[40%] opacity-80 group-hover:opacity-100"></div>
-                  <span className="font-label text-[10px] text-on-surface-variant">20</span>
-                </div>
-                <div className="group relative flex flex-col items-center gap-2 h-full justify-end">
-                  <div className="w-full bg-gradient-to-b from-[#574500] to-[#735c00] border-l border-[#fed65b] border-r border-[#241a00] transition-all duration-500 h-[55%] group-hover:h-[60%] opacity-80 group-hover:opacity-100"></div>
-                  <span className="font-label text-[10px] text-on-surface-variant">30</span>
-                </div>
-                <div className="group relative flex flex-col items-center gap-2 h-full justify-end">
-                  <div className="w-full bg-gradient-to-b from-[#574500] to-[#735c00] border-l border-[#fed65b] border-r border-[#241a00] transition-all duration-500 h-[45%] group-hover:h-[50%] opacity-80 group-hover:opacity-100"></div>
-                  <span className="font-label text-[10px] text-on-surface-variant">40</span>
-                </div>
-                <div className="group relative flex flex-col items-center gap-2 h-full justify-end">
-                  <div className="w-full bg-gradient-to-b from-[#574500] to-[#735c00] border-l border-[#fed65b] border-r border-[#241a00] transition-all duration-500 h-[70%] group-hover:h-[75%] opacity-80 group-hover:opacity-100"></div>
-                  <span className="font-label text-[10px] text-on-surface-variant font-bold text-primary">50</span>
-                </div>
-                <div className="group relative flex flex-col items-center gap-2 h-full justify-end">
-                  <div
-                    className="w-full border border-secondary shadow-lg transition-all duration-500 h-[95%] group-hover:scale-105 relative"
-                    style={{
-                      backgroundColor: "#8f0402",
-                      backgroundImage: "radial-gradient(circle at center, #b22417 0%, #8f0402 100%)",
-                      boxShadow: "inset 0 0 100px rgba(0, 0, 0, 0.3)",
-                    }}
-                  >
-                    <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-secondary text-on-secondary-fixed px-2 py-0.5 text-[8px] font-bold uppercase whitespace-nowrap shadow-sm">
-                      จุดสูงสุด
+                {barData.map((bar) => (
+                  <div key={bar.age} className="group relative flex flex-col items-center gap-2 h-full justify-end">
+                    <div
+                      className={`w-full transition-all duration-500 relative ${
+                        bar.peak
+                          ? "border border-secondary shadow-lg group-hover:scale-105 z-20"
+                          : "bg-gradient-to-b from-[#574500] to-[#735c00] border-l border-[#fed65b] border-r border-[#241a00] opacity-80 group-hover:opacity-100 group-hover:h-[var(--hover-h)] z-10"
+                      }`}
+                      style={{
+                        height: `${bar.height}%`,
+                        ...(bar.peak
+                          ? {
+                              backgroundColor: "#8f0402",
+                              backgroundImage: "radial-gradient(circle at center, #b22417 0%, #8f0402 100%)",
+                              boxShadow: "inset 0 0 100px rgba(0, 0, 0, 0.3)",
+                            }
+                          : {}),
+                        // Since Tailwind doesn't support dynamic group-hover heights easily, 
+                        // we use a CSS variable for the hover state if not peak
+                        ...( !bar.peak ? { "--hover-h": `${Math.min(bar.height + 5, 100)}%` } : {} )
+                      } as any}
+                    >
+                      {bar.peak && (
+                        <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-secondary text-on-secondary-fixed px-2 py-0.5 text-[8px] font-bold uppercase whitespace-nowrap shadow-sm animate-bounce">
+                          จุดสูงสุด
+                        </div>
+                      )}
                     </div>
+                    <span className={`font-label text-[10px] ${bar.peak ? "font-bold text-primary" : "text-on-surface-variant"}`}>
+                      {bar.age}
+                    </span>
                   </div>
-                  <span className="font-label text-[10px] text-on-surface-variant font-bold text-primary">60</span>
-                </div>
-                <div className="group relative flex flex-col items-center gap-2 h-full justify-end">
-                  <div className="w-full bg-gradient-to-b from-[#574500] to-[#735c00] border-l border-[#fed65b] border-r border-[#241a00] transition-all duration-500 h-[80%] group-hover:h-[85%] opacity-80 group-hover:opacity-100"></div>
-                  <span className="font-label text-[10px] text-on-surface-variant">70</span>
-                </div>
-                <div className="group relative flex flex-col items-center gap-2 h-full justify-end">
-                  <div className="w-full bg-gradient-to-b from-[#574500] to-[#735c00] border-l border-[#fed65b] border-r border-[#241a00] transition-all duration-500 h-[65%] group-hover:h-[70%] opacity-80 group-hover:opacity-100"></div>
-                  <span className="font-label text-[10px] text-on-surface-variant">80</span>
-                </div>
+                ))}
               </div>
 
               <div className="mt-8 grid md:grid-cols-3 gap-6">
